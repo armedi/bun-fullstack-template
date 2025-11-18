@@ -1,0 +1,19 @@
+{
+	"name": "bun-fullstack-template",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"packageManager": "bun@1.0.0",
+	"scripts": {
+		"biome:check": "biome check --write",
+		"dev:web": "bun run --filter web dev",
+		"watch-routes:web": "bun run --filter web watch-routes",
+		"dev:mobile": "bun run --filter mobile start",
+		"dev": "concurrently \"bun watch-routes:web\" \"bun dev:web\" \"bun dev:mobile\""
+	},
+	"devDependencies": {
+		"biome": "^0.3.3",
+		"concurrently": "^8.2.2"
+	}
+}
