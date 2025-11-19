@@ -15,13 +15,14 @@ function HelloPage() {
     },
   });
 
+  let message = "";
   if (isLoading) {
-    return <p className="text-slate-600">Loading...</p>;
+    message = "Loading...";
+  } else if (isError) {
+    message = "Failed to fetch hello";
+  } else {
+    message = data?.message ?? "No message returned";
   }
 
-  if (isError) {
-    return <p className="text-slate-600">Failed to fetch hello</p>;
-  }
-
-  return <p className="text-slate-600">{data?.message ?? "No message returned"}</p>;
+  return <p className="text-slate-600">{message}</p>;
 }
